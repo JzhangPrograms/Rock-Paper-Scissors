@@ -1,0 +1,51 @@
+import random
+
+win = {
+   "1" : "rock",
+   "2" : "paper",
+   "3" : "scissors",
+  "11" : "tie",
+  "12" : "you lose",
+  "13" : "you won",
+  "21" : "you won",
+  "22" : "tie",
+  "23" : "your lose",
+  "31" : "you lose",
+  "32" : "you won",
+  "33" : "tie"
+ } 
+
+print("welcome to rock paper scissors!")
+print("")
+
+player_score = 0
+cpu_score = 0
+
+def game():
+ print("")
+ player_choice = input("press 1 for rock, 2 for paper, 3 for scissors: ")
+ cpu_choice = random.choice(["1","2","3"])
+ x = win.get(player_choice + cpu_choice)
+ player_choice
+ cpu_choice
+ if player_choice == "1" or "2" or "3":
+  print(win.get(player_choice), "vs", win.get(cpu_choice))
+  print(x)
+  global player_score, cpu_score
+  if x == "you won":
+      player_score += 1
+  if x == "you lose":  
+      cpu_score += 1
+  print("player score:", player_score, "computer score: ",cpu_score)
+  repeat()
+
+    
+def repeat():
+    print("")
+    play_again = input("would you like to play again? Y/N: ")
+    if play_again in ("Y","y"):
+     game()
+    else:
+     print("Game ended!")
+
+game()
